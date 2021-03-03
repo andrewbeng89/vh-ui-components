@@ -7,14 +7,145 @@
   </head>
   <body>
     <h1 class="ce-mb-4">Reusable UI Components</h1>
-    <!-- Web Component -->
-    <ui-input id="myInput" label="Custom Input" value="Hello, custom elements!"></ui-input>
 
+    <div id="webComponent" class="ce-mt-4"></div>
+
+    <!-- Vue -->
+    <div id="vueApp" class="ce-mt-4">
+      <my-app></my-app>
+    </div>
+
+    <!-- React -->
+    <div id="reactApp" class="ce-mt-4"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script type="module">
       import { defineUiInput, defineUiDialog } from "./index.js";
 
+      // Define custom elements
       defineUiInput();
       defineUiDialog();
+
+      import { render as uRender, html as uHtml } from "https://unpkg.com/uhtml?module";
+      
+      let customInputValue = "Hello, custom elements!";
+      let customIsDialogOpen = false;
+      const update = () => uRender(
+        document.querySelector("#webComponent"),
+        uHtml`
+          <!-- Web Component -->
+          <ui-input
+            id="myInput"
+            label="Custom Input"
+            value=${customInputValue}
+            oninput=${({ target }) => {
+              customInputValue = target.value;
+              update();
+            }}
+          />
+          ${
+            customInputValue
+              ? uHtml`<pre>message: ${customInputValue}</pre>`
+              : ""
+          }
+          <button onclick=${() => {
+            customIsDialogOpen = true;
+            update();
+          }}>
+            Open dialog  
+          </button>
+          ${
+            customIsDialogOpen
+              ? uHtml`
+                <ui-dialog onclose=${() => {
+                  customIsDialogOpen = false;
+                  update();
+                }}>
+                  <span slot="header">Dialog DOM</span>
+                  Dialog content
+                  <span slot="footer">Dialog footer</span>
+                </ui-dialog>
+              `
+              : ""
+          }
+          <pre>isDialogOpen: ${customIsDialogOpen}</pre>
+        `
+      );
+      update();
+
+      // Vue
+      Vue.config.ignoredElements = ["ui-input"];
+      Vue.component("my-app", {
+        template: `
+          <div>
+            <ui-input
+              :value="inputValue"
+              @input="onInput"
+              label="My Vue Input"
+            />
+            <pre v-if="inputValue">message: {{ inputValue }}</pre>
+            <button @click="isDialogOpen = true">Open dialog</button>
+            <ui-dialog v-if="isDialogOpen" @close="isDialogOpen = false">
+              <span slot="header">Dialog Vue</span>
+              Dialog content
+              <span slot="footer">Dialog footer</span>
+            </ui-dialog>
+            <pre>isDialogOpen: {{ isDialogOpen }}</pre>
+          </div>
+        `,
+        methods: {
+          onInput({ target }) {
+            this.inputValue = target.value;
+          }
+        },
+        data() {
+          return {
+            inputValue: "Hello, Vue!",
+            isDialogOpen: false
+          };
+        }
+      });
+
+      const vueApp = new Vue({
+        el: "#vueApp"
+      });
+
+      import { createElement, render, Component, h } from "https://unpkg.com/preact@latest?module";
+      import { useState } from "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module";
+      import htm from "https://unpkg.com/htm?module";
+      const html = htm.bind(h);
+      
+      const App = () => {
+        const [inputValue, setInputValue] = useState("Hello, Preact!");
+        const [isDialogOpen, toggleDialog] = useState(false);
+
+        return html`
+          <ui-input
+            label="My Preact Input"
+            value=${inputValue}
+            onInput=${({ target }) => setInputValue(target.value)}
+          />
+          ${inputValue && html`
+              <pre>Message: ${inputValue}</pre>
+            `
+          }
+          <button onclick=${() => toggleDialog(true)}>
+            Open dialog
+          </button>
+          ${isDialogOpen && html`
+              <ui-dialog onclose=${() => toggleDialog(false)}>
+                <span slot="header">Dialog Preact</span>
+                Dialog content
+                <span slot="footer">Dialog footer</span>
+              </ui-dialog>
+            `
+          }
+          <pre>isDialogOpen: ${JSON.stringify(isDialogOpen)}</pre>
+        `;
+      }
+
+      const domContainer = document.querySelector("#reactApp");
+      render(html`<${App} />`, domContainer);
     </script>
   </body>
 </html>
