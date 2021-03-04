@@ -35,7 +35,6 @@ export default [
         plugins: [tailwind(), postcssImport()],
         module: false,
         minimize: true,
-        inject: false,
       }),
       replace({
         "process.env.NODE_ENV": JSON.stringify("production"),
