@@ -8,6 +8,7 @@ import copy from "rollup-plugin-copy";
 import fg from "fast-glob";
 import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
+import minifyHTML from "rollup-plugin-minify-html-literals";
 
 const outputDir = process.env.NODE_ENV === "dev" ? "./dev" : "./dist";
 
@@ -29,6 +30,7 @@ export default [
           });
         },
       },
+      minifyHTML(),
       postcss({
         plugins: [tailwind(), postcssImport()],
         module: false,
