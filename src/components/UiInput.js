@@ -75,7 +75,7 @@ export default (
       return () => html`
         ${styles()}
         <style>
-          :host {
+          html {
             font-size: initial;
           }
 
@@ -113,5 +113,7 @@ export default (
       "readonly",
       "autocomplete",
     ],
+
+    useShadowDOM: false,
   });
 };
