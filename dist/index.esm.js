@@ -57,4 +57,4 @@ var e=e=>({get:t=>e.get(t),set:(t,n)=>(e.set(t,n),n)});const t=/([^\s\\>"'=]+)\s
           </div>
         </div>
       `})};export{ot as defineUiDialog,rt as defineUiInput};
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=index.esm.js.map
