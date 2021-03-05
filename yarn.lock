@@ -2554,9 +2554,9 @@ vendors@^1.0.0:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-"vue-hyper@https://github.com/andrewbeng89/vue-hyper.git":
+"vue-hyper@https://github.com/andrewbeng89/vue-hyper":
   version "0.1.0"
-  resolved "https://github.com/andrewbeng89/vue-hyper.git#522d2d745bf89b71e4e2eecf36fb4060a83aa946"
+  resolved "https://github.com/andrewbeng89/vue-hyper#dd6bd35e29d5d670f39a80666613dbeaa536dee8"
   dependencies:
     tailwindcss "^2.0.3"
     uhtml "^2.5.1"
