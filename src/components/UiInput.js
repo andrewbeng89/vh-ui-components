@@ -109,5 +109,7 @@ export default (
       "readonly",
       "autocomplete",
     ],
+
+    useShadowDOM: false,
   });
 };
