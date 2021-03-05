@@ -4,7 +4,7 @@
   "dependencies": {
     "tailwindcss": "^2.0.3",
     "uuid": "^8.3.2",
-    "vue-hyper": "https://github.com/andrewbeng89/vue-hyper"
+    "vue-hyper": "https://github.com/andrewbeng89/vue-hyper.git"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^11.2.0",
