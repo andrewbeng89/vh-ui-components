@@ -38,7 +38,7 @@ export default (
 
       const labelClassNames = computed(() => {
         const baseClasses =
-          "ce-absolute ce-px-1 ce-transition-all ce-duration-150 ce-origin-left ce-transform ce-pointer-events-none ce-select-none ce-left-3";
+          "ce-absolute ce-px-1 ce-font-normal ce-transition-all ce-duration-150 ce-origin-left ce-transform ce-pointer-events-none ce-select-none ce-left-3";
         let result = "";
 
         if (state.isFocused || isFilled.value) {
@@ -66,7 +66,7 @@ export default (
           "ce-block ce-w-full ce-text-gray-900 ce-placeholder-gray-400 ce-transition ce-duration-150 ce-rounded-none ce-outline-none ce-h-14 ce-hover:border-blue";
 
         const focusStateClasses = state.isFocused
-          ? "ce-border-2 ce-border-blue ce-p-inputFocuesed"
+          ? "ce-border-2 ce-border-blue ce-p-inputFocused"
           : "ce-border ce-p-4";
 
         return `${baseClasses} ${focusStateClasses}`;
@@ -75,7 +75,11 @@ export default (
       return () => html`
         ${styles()}
         <style>
-          .ce-p-inputFocuesed {
+          :host {
+            font-size: initial;
+          }
+
+          .ce-p-inputFocused {
             padding: 16px 15px;
           }
         </style>
@@ -109,7 +113,5 @@ export default (
       "readonly",
       "autocomplete",
     ],
-
-    useShadowDOM: false,
   });
 };
