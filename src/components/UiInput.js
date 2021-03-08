@@ -96,7 +96,7 @@ export default (
             onblur=${handleBlur}
             onkeyup=${handleKeyup}
             class=${inputClasses.value}
-            type="text"
+            type=${props.type || "text"}
             autocomplete=${props.autocomplete}
             placeholder=${props.placeholder}
             ref=${(node) => (refs.input = node)}
@@ -106,6 +106,7 @@ export default (
     },
 
     propDefs: [
+      "type",
       "value",
       "label",
       "placeholder",
