@@ -45,7 +45,7 @@ export default (
           result = "ce--translate-y-1/2 ce-bg-white ce-text-xs";
 
           if (state.isFocused) {
-            result += " ce-text-blue";
+            result += " ce-text-blue-default";
           }
 
           if (isFilled.value) {
@@ -63,10 +63,10 @@ export default (
 
       const inputClasses = computed(() => {
         const baseClasses =
-          "ce-block ce-w-full ce-text-gray-900 ce-placeholder-gray-400 ce-transition ce-duration-150 ce-rounded-none ce-outline-none ce-h-14 ce-hover:border-blue";
+          "ce-block ce-w-full ce-text-gray-900 ce-placeholder-gray-400 ce-transition ce-duration-150 ce-rounded-none ce-outline-none ce-h-14 hover:ce-border-blue-default";
 
         const focusStateClasses = state.isFocused
-          ? "ce-border-2 ce-border-blue ce-p-inputFocused"
+          ? "ce-border-2 ce-border-blue-default ce-p-inputFocused"
           : "ce-border ce-p-4";
 
         return `${baseClasses} ${focusStateClasses}`;
