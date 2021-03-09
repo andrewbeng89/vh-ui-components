@@ -10,7 +10,7 @@ var e=e=>({get:t=>e.get(t),set:(t,n)=>(e.set(t,n),n)});const t=/([^\s\\>"'=]+)\s
             padding: 16px 15px;
           }
         </style>
-        <div class="ce-relative">
+        <div class=${`${n.className} ce-relative`}>
           <label class=${l.value} for=${r.id}
             >${e.label}</label
           >
