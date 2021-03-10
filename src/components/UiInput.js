@@ -73,10 +73,10 @@ export default (
             id=${state.id}
             value=${props.value || (props.value = "")}
             readonly=${props.readonly}
-            oninput=${({ target }) =>  (ctx.value = target.value)}
+            oninput=${({ target }) => (ctx.value = target.value)}
             onfocus=${() => (state.isFocused = true)}
             onblur=${() => (state.isFocused = false)}
-            onkeyup=${({ code }) => (code === "Escape" && refs.input?.blur())}
+            onkeyup=${({ code }) => code === "Escape" && refs.input?.blur()}
             class=${inputClasses.value}
             type=${props.type || "text"}
             autocomplete=${props.autocomplete}
