@@ -30,7 +30,7 @@
                 `:""}
           </div>
         </div>
-      `})},exports.defineUiInput=({name:e="ui-input"}={name:"ui-input"})=>{qe({name:e,setup:({props:e,refs:t,ctx:n})=>{const r=De({isFocused:!1,id:`id-${tt()}`}),o=({target:e})=>{n.value=e.value},i=()=>{r.isFocused=!0},a=()=>{r.isFocused=!1},s=({code:e})=>{"Escape"===e&&t.input?.blur()},c=He((()=>!!e.value)),l=He((()=>{let t="";return r.isFocused||c.value?(t="ce--translate-y-1/2 ce-bg-white ce-text-xs",r.isFocused&&(t+=" ce-text-blue-default"),c.value&&(t+=" ce-text-gray-500")):t=e.placeholder?"ce--translate-y-1/2 ce-bg-white ce-text-xs ce-text-gray-700":"ce-text-gray-500 ce-translate-y-4 ce-text-sm",`ce-absolute ce-px-1 ce-font-normal ce-transition-all ce-duration-150 ce-origin-left ce-transform ce-pointer-events-none ce-select-none ce-left-3 ${t}`})),u=He((()=>`ce-block ce-w-full ce-text-gray-900 ce-placeholder-gray-400 ce-transition ce-duration-150 ce-rounded-none ce-outline-none ce-h-14 hover:ce-border-blue-default ${r.isFocused?"ce-border-2 ce-border-blue-default ce-p-inputFocused":"ce-border ce-p-4"}`));return()=>O`
+      `})},exports.defineUiInput=({name:e="ui-input"}={name:"ui-input"})=>{qe({name:e,setup:({props:e,refs:t,ctx:n})=>{const r=De({isFocused:!1,id:`id-${tt()}`}),o=He((()=>!!e.value)),i=He((()=>{let t="";return r.isFocused||o.value?(t="ce--translate-y-1/2 ce-bg-white ce-text-xs",r.isFocused&&(t+=" ce-text-blue-default"),o.value&&(t+=" ce-text-gray-500")):t=e.placeholder?"ce--translate-y-1/2 ce-bg-white ce-text-xs ce-text-gray-700":"ce-text-gray-500 ce-translate-y-4 ce-text-sm",`ce-absolute ce-px-1 ce-font-normal ce-transition-all ce-duration-150 ce-origin-left ce-transform ce-pointer-events-none ce-select-none ce-left-3 ${t}`})),a=He((()=>`ce-block ce-w-full ce-text-gray-900 ce-placeholder-gray-400 ce-transition ce-duration-150 ce-rounded-none ce-outline-none ce-h-14 hover:ce-border-blue-default ${r.isFocused?"ce-border-2 ce-border-blue-default ce-p-inputFocused":"ce-border ce-p-4"}`));return()=>O`
         ${nt()}
         <style>
           html {
@@ -42,18 +42,18 @@
           }
         </style>
         <div class=${`${n.className} ce-relative`}>
-          <label class=${l.value} for=${r.id}
+          <label class=${i.value} for=${r.id}
             >${e.label}</label
           >
           <input
             id=${r.id}
             value=${e.value||(e.value="")}
             readonly=${e.readonly}
-            oninput=${o}
-            onfocus=${i}
-            onblur=${a}
-            onkeyup=${s}
-            class=${u.value}
+            oninput=${({target:e})=>n.value=e.value}
+            onfocus=${()=>r.isFocused=!0}
+            onblur=${()=>r.isFocused=!1}
+            onkeyup=${({code:e})=>"Escape"===e&&t.input?.blur()}
+            class=${a.value}
             type=${e.type||"text"}
             autocomplete=${e.autocomplete}
             placeholder=${e.placeholder}

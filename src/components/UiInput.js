@@ -16,24 +16,6 @@ export default (
         id: `id-${uuidv4()}`,
       });
 
-      const updateValue = ({ target }) => {
-        ctx.value = target.value;
-      };
-
-      const handleFocus = () => {
-        state.isFocused = true;
-      };
-
-      const handleBlur = () => {
-        state.isFocused = false;
-      };
-
-      const handleKeyup = ({ code }) => {
-        if (code === "Escape") {
-          refs.input?.blur();
-        }
-      };
-
       const isFilled = computed(() => !!props.value);
 
       const labelClassNames = computed(() => {
@@ -91,10 +73,10 @@ export default (
             id=${state.id}
             value=${props.value || (props.value = "")}
             readonly=${props.readonly}
-            oninput=${updateValue}
-            onfocus=${handleFocus}
-            onblur=${handleBlur}
-            onkeyup=${handleKeyup}
+            oninput=${({ target }) =>  (ctx.value = target.value)}
+            onfocus=${() => (state.isFocused = true)}
+            onblur=${() => (state.isFocused = false)}
+            onkeyup=${({ code }) => (code === "Escape" && refs.input?.blur())}
             class=${inputClasses.value}
             type=${props.type || "text"}
             autocomplete=${props.autocomplete}
