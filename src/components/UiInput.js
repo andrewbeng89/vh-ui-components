@@ -37,7 +37,7 @@ export default (
           result =
             "ce--translate-y-1/2 ce-bg-white ce-text-xs ce-text-gray-700";
         } else {
-          result = "ce-text-gray-500 ce-translate-y-4 ce-text-sm";
+          result = "ce-text-gray-500 ce-translate-y-4 ce-text-sm ce-leading-6";
         }
 
         return `${baseClasses} ${result}`;

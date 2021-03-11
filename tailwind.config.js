@@ -119,6 +119,16 @@ module.exports = {
       }
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        marketing: ["Futura", "sans-serif"],
+      },
+      spacing: {
+        audioitemTitle: "442px",
+        audioitemTags: "228px",
+        half: "0.125rem", // 2px
+        14: "3.5rem", //  "56px", text input height
+      },
       colors: {
         transparent: "transparent",
         black: "#000",
@@ -179,8 +189,8 @@ module.exports = {
           default: "#00D200",
           dark: "#00AA00"
         }
-      }
-    }
+      },
+    },
   },
   variants: {
     extend: {},

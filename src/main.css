@@ -1,3 +1,92 @@
 @tailwind base;
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Inter-Regular.woff2?v=3.12") format("woff2"),
+    url("./fonts/Inter-Regular.woff?v=3.12") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/Inter-Medium.woff2?v=3.12") format("woff2"),
+    url("./fonts/Inter-Medium.woff?v=3.12") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./fonts/Inter-SemiBold.woff2?v=3.12") format("woff2"),
+    url("./fonts/Inter-SemiBold.woff?v=3.12") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/Inter-Bold.woff2?v=3.12") format("woff2"),
+    url("./fonts/Inter-Bold.woff?v=3.12") format("woff");
+}
+
 @tailwind components;
+
+.heading-medium {
+  @apply ce-leading-snug ce-font-medium ce-font-sans ce-text-base;
+}
+
+.heading-large {
+  @apply ce-font-medium ce-font-sans ce-text-xl ce-leading-normal;
+}
+
+.caption {
+  @apply ce-font-sans ce-text-xs ce-font-semibold ce-leading-snug ce-tracking-widest ce-uppercase;
+}
+
+.text-tiny {
+  @apply ce-font-sans ce-text-xs ce-leading-snug;
+}
+
+.text-small {
+  @apply ce-font-sans ce-text-sm ce-leading-normal;
+}
+
+.text-medium {
+  @apply ce-font-sans ce-text-base ce-leading-normal;
+}
+
+.text-large {
+  @apply ce-font-sans ce-text-xl ce-leading-normal;
+}
+
+.icon {
+  @apply ce-w-6 ce-h-6 ce-transition-colors ce-duration-200 ce-ease-in-out ce-fill-current;
+}
+
+.icon-small {
+  @apply ce-w-4 ce-h-4 ce-transition-colors ce-duration-200 ce-ease-in-out ce-fill-current;
+}
+
+/**
+ * Helper class which applies to <html> whenever a modal is open to prevent background scrolling.
+ */
+.scrolling-disabled {
+  @apply ce-overflow-hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
+/* purgecss end ignore */
+
 @tailwind utilities;
+
+:host {
+  font-family: Inter, sans-serif;
+}

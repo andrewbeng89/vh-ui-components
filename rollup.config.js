@@ -59,6 +59,10 @@ export default [
             src: "./src/index.html",
             dest: outputDir,
           },
+          {
+            src: "./src/fonts/**/*",
+            dest: `${outputDir}/fonts`,
+          },
         ],
       }),
       nodeResolve(),
