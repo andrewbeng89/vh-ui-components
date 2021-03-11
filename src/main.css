@@ -1,40 +1,6 @@
+@import url('https://rsms.me/inter/inter.css');
+
 @tailwind base;
-
-@font-face {
-  font-display: swap;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  src: url("./fonts/Inter-Regular.woff2?v=3.12") format("woff2"),
-    url("./fonts/Inter-Regular.woff?v=3.12") format("woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  src: url("./fonts/Inter-Medium.woff2?v=3.12") format("woff2"),
-    url("./fonts/Inter-Medium.woff?v=3.12") format("woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  src: url("./fonts/Inter-SemiBold.woff2?v=3.12") format("woff2"),
-    url("./fonts/Inter-SemiBold.woff?v=3.12") format("woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  src: url("./fonts/Inter-Bold.woff2?v=3.12") format("woff2"),
-    url("./fonts/Inter-Bold.woff?v=3.12") format("woff");
-}
 
 @tailwind components;
 
@@ -89,6 +55,7 @@
 
 :host, :root {
   all: initial;
-  display: block;
-  font-family: Inter, sans-serif;
+  @apply ce-block;
+  font-family: 'Inter', sans-serif;
+  @apply ce-leading-6;
 }
