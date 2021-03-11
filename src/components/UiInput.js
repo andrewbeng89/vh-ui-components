@@ -65,7 +65,7 @@ export default (
             padding: 16px 15px;
           }
         </style>
-        <div class=${`${ctx.className} ce-relative`}>
+        <div class="ce-relative">
           <label class=${labelClassNames.value} for=${state.id}
             >${props.label}</label
           >

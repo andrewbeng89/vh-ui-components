@@ -41,7 +41,7 @@
             padding: 16px 15px;
           }
         </style>
-        <div class=${`${n.className} ce-relative`}>
+        <div class="ce-relative">
           <label class=${i.value} for=${r.id}
             >${e.label}</label
           >
