@@ -57,10 +57,6 @@ export default (
       return () => html`
         ${styles()}
         <style>
-          html {
-            font-size: initial;
-          }
-
           .ce-p-inputFocused {
             padding: 16px 15px;
           }

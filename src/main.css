@@ -88,5 +88,8 @@
 @tailwind utilities;
 
 :host {
+  all: initial;
+  display: block;
   font-family: Inter, sans-serif;
+  font-size: 16px;
 }
