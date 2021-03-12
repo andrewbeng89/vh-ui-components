@@ -57,9 +57,9 @@ export default (
       return () => html`
         ${styles()}
         <style>
-          .ce-p-inputFocused {
+          ${`.ce-p-inputFocused {
             padding: 16px 15px;
-          }
+          }`}
         </style>
         <div class="ce-relative">
           <label class=${labelClassNames.value} for=${state.id}

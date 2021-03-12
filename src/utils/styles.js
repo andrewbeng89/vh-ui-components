@@ -3,6 +3,6 @@ import rawStyles from "../main.css";
 
 export const styles = () => html`
   <style>
-    ${rawStyles}
+    ${`${rawStyles}`}
   </style>
 `;
