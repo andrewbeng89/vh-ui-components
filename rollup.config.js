@@ -8,6 +8,7 @@ import { terser } from "rollup-plugin-terser";
 import copy from "rollup-plugin-copy";
 import fg from "fast-glob";
 import minifyHTML from "rollup-plugin-minify-html-literals";
+import { babel } from "@rollup/plugin-babel";
 
 const outputDir = process.env.NODE_ENV === "dev" ? "./dev" : "./dist";
 const outputCJS =
@@ -41,6 +42,7 @@ export default [
         },
       },
       commonjs(),
+      babel({ babelHelpers: "bundled" }),
       minifyHTML(),
       postcss({
         plugins: [tailwind(), postcssImport()],
