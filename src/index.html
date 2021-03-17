@@ -18,7 +18,7 @@
     <!-- React -->
     <div id="reactApp" class="ce-mt-4"></div>
     
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <script type="module">
       import { defineUiInput, defineUiDialog } from "./index.esm.js";
 
@@ -74,12 +74,12 @@
       update();
 
       // Vue
-      Vue.component("my-app", {
+      const myApp = {
         template: `
           <div>
             <ui-input
               :value="inputValue"
-              @input="onInput"
+              @input="({ target }) => inputValue = target.value"
               label="My Vue Input"
             />
             <pre v-if="inputValue">message: {{ inputValue }}</pre>
@@ -92,22 +92,17 @@
             <pre>isDialogOpen: {{ isDialogOpen }}</pre>
           </div>
         `,
-        methods: {
-          onInput({ target }) {
-            this.inputValue = target.value;
-          }
-        },
-        data() {
-          return {
-            inputValue: "Hello, Vue!",
-            isDialogOpen: false
-          };
-        }
-      });
+        setup() {
+          const inputValue = Vue.ref("Hello, Vue!");
+          const isDialogOpen = Vue.ref(false);
 
-      const vueApp = new Vue({
-        el: "#vueApp"
-      });
+          return { inputValue, isDialogOpen };
+        }
+      };
+
+      const app = window.app = Vue.createApp(myApp);
+      app.config.isCustomElement = tag => tag.match(/^ui-dialog|ui-input$/);
+      app.mount("#vueApp");
 
       import { createElement, render, Component, h } from "https://unpkg.com/preact@latest?module";
       import { useState } from "https://unpkg.com/preact@latest/hooks/dist/hooks.module.js?module";
