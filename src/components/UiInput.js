@@ -1,4 +1,4 @@
-import { defineComponent, reactive, computed, html } from "vue-hyper";
+import { defineComponent, reactive, computed, html } from "vue-uhtml";
 import { v4 as uuidv4 } from "uuid";
 import { styles } from "../utils/styles";
 

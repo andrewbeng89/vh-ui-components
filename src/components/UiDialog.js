@@ -1,4 +1,4 @@
-import { defineComponent, html } from "vue-hyper";
+import { defineComponent, html } from "vue-uhtml";
 import { styles } from "../utils/styles";
 
 export default (

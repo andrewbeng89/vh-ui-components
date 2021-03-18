@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "uuid": "^8.3.2",
-    "vue-hyper": "https://github.com/andrewbeng89/vue-hyper"
+    "vue-uhtml": "https://github.com/andrewbeng89/vue-uhtml"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
