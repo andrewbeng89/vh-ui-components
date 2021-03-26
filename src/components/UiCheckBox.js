@@ -42,6 +42,15 @@ export default (
       `;
     },
 
-    propDefs: ["disabled", "checked"],
+    props: {
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
+      checked: {
+        type: Boolean,
+        default: false,
+      },
+    },
   });
 };

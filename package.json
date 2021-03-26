@@ -38,7 +38,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "uuid": "^8.3.2",
-    "vue-uhtml": "^0.2.0"
+    "vue-uhtml": "^0.3.0"
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
