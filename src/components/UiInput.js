@@ -3,8 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import { styles } from "../utils/styles";
 
 export default (
-  { name = "ui-input" } = {
+  { name = "ui-input", isTest = false } = {
     name: "ui-input",
+    isTest: false,
   }
 ) => {
   defineComponent({
@@ -110,5 +111,7 @@ export default (
         default: "on",
       },
     },
+
+    shadowMode: isTest ? "open" : "closed",
   });
 };

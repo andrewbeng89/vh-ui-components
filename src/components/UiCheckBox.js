@@ -9,8 +9,9 @@ const checkBoxStyles = () => html`
 `;
 
 export default (
-  { name = "ui-check-box" } = {
+  { name = "ui-check-box", isTest = false } = {
     name: "ui-check-box",
+    isTest: false,
   }
 ) => {
   defineComponent({
@@ -52,5 +53,7 @@ export default (
         default: false,
       },
     },
+
+    shadowMode: isTest ? "open" : "closed",
   });
 };
