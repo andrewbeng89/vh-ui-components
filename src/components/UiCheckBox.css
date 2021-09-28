@@ -9,6 +9,10 @@ input:hover + span::before {
   @apply ce-border-blue-dark;
 }
 
+input:focus-visible + span::before {
+  @apply ce-outline-blue;
+}
+
 input:checked:hover + span::before {
   @apply ce-bg-blue-dark;
 }
