@@ -43,7 +43,7 @@ export default [
       },
       commonjs(),
       babel({ babelHelpers: "bundled" }),
-      minifyHTML(),
+      ...(process.env.NODE_ENV !== "dev" ? [minifyHTML()] : []),
       postcss({
         plugins: [tailwind(), postcssImport()],
         module: false,
@@ -62,7 +62,7 @@ export default [
         ],
       }),
       nodeResolve(),
-      terser(),
+      ...(process.env.NODE_ENV !== "dev" ? [terser()] : []),
     ],
   },
 ];
