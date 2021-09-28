@@ -16,6 +16,9 @@ module.exports = {
       xxl: "1600px",
     },
     extend: {
+      outline: {
+        blue: ["2px solid rgba(0, 62, 219, 0.5)", "2px"],
+      },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         marketing: ["Futura", "sans-serif"],
@@ -115,6 +118,7 @@ module.exports = {
   },
   variants: {
     opacity: ["responsive", "hover", "focus", "group-hover"],
+    outline: ["focus", "focus-visible"],
     display: ["responsive", "group-hover"],
     textColor: ["responsive", "hover", "focus", "group-hover", "group-focus"],
   },
