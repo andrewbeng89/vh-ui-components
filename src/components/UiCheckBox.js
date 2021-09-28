@@ -35,6 +35,12 @@ export default (
             checked=${props.checked}
             disabled=${props.disabled}
             onchange=${({ target }) => (ctx.checked = target.checked)}
+            onkeydown=${({ code, target }) => {
+              if (code === "Enter") {
+                ctx.checked = !ctx.checked;
+                target.checked = ctx.checked;
+              }
+            }}
           />
           <span class="ce-relative ce-flex ce-items-center">
             <slot></slot>
