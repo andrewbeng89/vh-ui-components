@@ -8,12 +8,13 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-postcss"
+    "@storybook/addon-postcss",
+    "@storybook/addon-a11y"
   ],
   webpackFinal: async config => {
     // Remove the existing css rule
     config.module.rules = config.module.rules.filter(
-      f => f.test.toString() !== "/\\.css$/"
+      f => f.test !== /\\.css$/
     );
 
     config.module.rules.push({
